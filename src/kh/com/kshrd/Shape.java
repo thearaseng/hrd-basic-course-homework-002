@@ -16,12 +16,12 @@ public class Shape {
 		
 	}
 	
-	private void printShape1() {
-		
-		System.out.println("1. Shape I\n");
-		
+	private void printTitle(String title) {
+		System.out.println("\n" + title + "\n");
+	}
+	
+	private void printPyramid(int numRow){
 		for(int i = 0; i < numRow; i++) {
-			
 			int endIndex = numRow + i;
 			for(int j = 0; j < endIndex; j++) {
 				if(j >= (numRow - (i + 1)) ) {
@@ -36,10 +36,7 @@ public class Shape {
 		}
 	}
 	
-	private void printShape2() {
-		
-		System.out.println("2. Shape II\n");
-		
+	private void printUpsideDownPyramid(int numRow) {
 		int numColumn = (numRow * 2) - 1; 
 		for(int i = 0; i < numRow; i++) {
 			for(int j = 0; j < numColumn; j++) {
@@ -51,20 +48,27 @@ public class Shape {
 			}
 			System.out.println("");
 		}
+	}
+	
+	private void printShape1() {
+		printTitle("1. Shape I");
+		printPyramid(this.numRow);
+	}
+	
+	private void printShape2() {
+		printTitle("2. Shape II");
+		printUpsideDownPyramid(this.numRow);
 		
 	}
 	
 	private void printShape3() {
-		
-		System.out.println("3. Shape III\n");
-		
-		int row = numRow/2+1;
-		
+		printTitle("3. Shape III");
+		int row = (numRow/2)+1;
+		System.out.println(row);
 	}
 	
 	private void printShape4() {
-		System.out.println("4. Shape IV\n");
-		
+		printTitle("4. Shape IV");
 		for(int i = 0; i < numRow; i++) {
 			for(int j = 0; j <= i; j++) {
 				System.out.print((char)(65+j));
@@ -74,8 +78,7 @@ public class Shape {
 	}
 	
 	private void printShape5() {
-		System.out.println("5. Shape V\n");
-		
+		printTitle("5. Shape V");
 		for(int i = 0; i < numRow; i++) {
 			for(int j = 0; j < (numRow - i); j++) {
 				System.out.print((char)(65+j));
