@@ -36,9 +36,10 @@ public class Shape {
 		}
 	}
 	
-	private void printUpsideDownPyramid(int numRow) {
+	private void printUpsideDownPyramid(int numRow, boolean additionalSpace) {
 		int numColumn = (numRow * 2) - 1; 
 		for(int i = 0; i < numRow; i++) {
+			if(additionalSpace) System.out.print(" ");
 			for(int j = 0; j < numColumn; j++) {
 				if( (j >= i) && (j <= (numColumn - (i+1))) ) {
 					System.out.print("*");
@@ -57,14 +58,15 @@ public class Shape {
 	
 	private void printShape2() {
 		printTitle("2. Shape II");
-		printUpsideDownPyramid(this.numRow);
+		printUpsideDownPyramid(this.numRow, false);
 		
 	}
 	
 	private void printShape3() {
 		printTitle("3. Shape III");
-		int row = (numRow/2)+1;
-		System.out.println(row);
+		int middleIndex = ((numRow % 2 == 0) ? numRow : numRow+1) / 2;
+		printPyramid(middleIndex);
+		printUpsideDownPyramid(middleIndex - 1, true);
 	}
 	
 	private void printShape4() {
